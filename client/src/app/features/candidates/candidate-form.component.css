@@ -1,0 +1,50 @@
+.form-container {
+    padding: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tab-content {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+}
+
+.row mat-form-field {
+    flex: 1;
+}
+
+.checklist-section {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.checklist-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3f51b5;
+    margin-bottom: 12px;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+mat-card-actions {
+    padding: 16px;
+}

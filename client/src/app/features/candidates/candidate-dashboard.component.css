@@ -1,0 +1,131 @@
+:host {
+  display: block;
+  background-color: #f4f7f9;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 24px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.welcome-text {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+}
+
+.welcome-text span {
+  font-weight: bold;
+}
+
+/* Stat Cards */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card.active-onboarding {
+  background-color: #00334e;
+}
+
+.stat-card.year-onboarding {
+  background-color: #00a3e0;
+}
+
+.stat-card.active-offboarding {
+  background-color: #ffb81c;
+}
+
+.stat-card.year-offboarding {
+  background-color: #2d014d;
+}
+
+.stat-card.bench {
+  background-color: #333333;
+}
+
+.stat-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* Table Card */
+.dashboard-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-header-cell {
+  background-color: #f8f9fa;
+  color: #555;
+  font-weight: bold;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.completed {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.in-process {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.recruiter-review {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+.status-badge.manager-approval {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.status-badge.it-provisioning {
+  background-color: #e0f2f1;
+  color: #00695c;
+}
+
+.status-badge.audit-finalization {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
