@@ -39,6 +39,25 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+// App Insights & Monitoring
+builder.Services.AddApplicationInsightsTelemetry();
+
+// Health Checks
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<AuraDbContext>()
+    .AddCheck("AzureBlobStorage", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy()); // Placeholder check
+
+// CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ProductionPolicy", policy =>
+    {
+        policy.WithOrigins(builder.Configuration["AllowedOrigins"]?.Split(',') ?? ["http://localhost:4200"])
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 
@@ -51,12 +70,19 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+}
+else
+{
+    app.UseCors("ProductionPolicy");
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapHealthChecks("/health");
 
 app.MapControllers();
 
