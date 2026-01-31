@@ -74,6 +74,28 @@
                                 <input matInput formControlName="workAuthorization">
                             </mat-form-field>
                         </div>
+
+                        <div class="row">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Employee Type</mat-label>
+                                <mat-select formControlName="employeeType">
+                                    <mat-option value="FTE">Full Time (FTE)</mat-option>
+                                    <mat-option value="Contractor">Contractor (C2C/W2)</mat-option>
+                                    <mat-option value="Internal">Internal Transfer</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row" *ngIf="candidateForm.get('employeeType')?.value === 'Contractor'">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Vendor Name</mat-label>
+                                <input matInput formControlName="vendorName" placeholder="Agency Name">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Contract Duration</mat-label>
+                                <input matInput formControlName="contractDuration" placeholder="e.g. 6 Months">
+                            </mat-form-field>
+                        </div>
                     </div>
                 </mat-tab>
 

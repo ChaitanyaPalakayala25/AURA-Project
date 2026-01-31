@@ -72,6 +72,8 @@ export class CandidateFormComponent implements OnInit {
             experienceInYears: [0],
             workAuthorization: [''],
             employeeType: [''],
+            vendorName: [''],
+            contractDuration: [''],
             technicalSkillsSet: [''],
             certifications: [''],
 
@@ -124,6 +126,21 @@ export class CandidateFormComponent implements OnInit {
             billingCodesSetup: [false],
             pctTimestamp: [null],
             managerTimestamp: [null]
+        });
+
+        this.candidateForm.get('employeeType')?.valueChanges.subscribe(value => {
+            const vendorName = this.candidateForm.get('vendorName');
+            const contractDuration = this.candidateForm.get('contractDuration');
+
+            if (value === 'Contractor') {
+                vendorName?.setValidators([Validators.required]);
+                contractDuration?.setValidators([Validators.required]);
+            } else {
+                vendorName?.clearValidators();
+                contractDuration?.clearValidators();
+            }
+            vendorName?.updateValueAndValidity();
+            contractDuration?.updateValueAndValidity();
         });
     }
 
