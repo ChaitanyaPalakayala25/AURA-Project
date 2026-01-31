@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://aura-api.azurewebsites.net/api'
+    apiUrl: 'https://navitas-aura-dev.azurewebsites.net/api'
 };
